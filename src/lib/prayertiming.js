@@ -1,4 +1,4 @@
-import { getByDay, getByMonth } from "prayertiming";
+import { getByDay, getByMonth } from 'prayertiming';
 
 export default function prayertiming(config = {}) {
   const date = new Date();
@@ -6,16 +6,16 @@ export default function prayertiming(config = {}) {
     long: config.long,
     lat: config.lat,
     method: config.method,
-    timeFormat: config.timeFormat
+    timeFormat: config.timeFormat,
   };
   let timing;
 
-  if (config.type === "monthly") {
+  if (config.type === 'monthly') {
     params.month = config.month || date.getMonth();
     params.year = config.year || date.getFullYear();
 
     timing = getByMonth({
-      ...params
+      ...params,
     });
   } else {
     params.date = config.date || date;
