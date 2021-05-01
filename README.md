@@ -40,11 +40,11 @@ A command line tool to show Muslim prayer times based on coordinates.
 
 - daily
 
-[](screenshots/prayertiming-daily.jpg)
+![prayertiming-daily](screenshots/prayertiming-daily.jpg)
 
 - monthly
 
-[](screenshots/prayertiming-monthly.jpg)
+![prayertiming-monthly](screenshots/prayertiming-monthly.jpg)
 
 ### Related projects
 
