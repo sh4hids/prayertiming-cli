@@ -36,6 +36,16 @@ A command line tool to show Muslim prayer times based on coordinates.
  pt
 ```
 
+### Screenshots
+
+- daily
+
+[](screenshots/prayertiming-daily.jpg)
+
+- monthly
+
+[](screenshots/prayertiming-monthly.jpg)
+
 ### Related projects
 
 - [prayertiming](https://github.com/sh4hids/prayertiming)
