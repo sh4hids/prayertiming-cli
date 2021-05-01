@@ -9,6 +9,7 @@ import * as configure from './lib/configure';
 import { default as format, formatConfig } from './lib/format';
 import inquirer from './lib/inquirer';
 import prayertiming from './lib/prayertiming';
+import { default as showUsage } from './lib/usage';
 
 clear();
 
@@ -44,6 +45,8 @@ const run = async () => {
     long,
     timeFormat = '24h',
     method = 'MWL',
+    help,
+    h,
   } = argv;
 
   let config = { type, lat, long, timeFormat, method };
@@ -56,6 +59,11 @@ const run = async () => {
     config = await configure.getConfig();
 
     console.log(formatConfig(config));
+    return;
+  }
+
+  if (booleans.includes('help') || h || help) {
+    showUsage();
     return;
   }
 
