@@ -1,4 +1,4 @@
-# prayertiming-cli
+# prayertiming-cli [![Stars](https://img.shields.io/github/stars/sh4hids/prayertiming-cli.svg)](https://github.com/sh4hids/prayertiming-cli) · [![License](https://img.shields.io/github/license/sh4hids/prayertiming-cli.svg)](https://github.com/sh4hids/prayertiming-cli) · [![GitHub issues](https://img.shields.io/github/issues/sh4hids/prayertiming-cli.svg?style=popout)](https://github.com/sh4hids/prayertiming-cli/issues) · [![Build](https://github.com/sh4hids/prayertiming-cli/actions/workflows/build.yml/badge.svg)](https://github.com/sh4hids/prayertiming-cli)
 
 A command line tool to show Muslim prayer times based on coordinates.
 
