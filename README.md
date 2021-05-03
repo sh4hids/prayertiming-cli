@@ -2,6 +2,12 @@
 
 A command line tool to show Muslim prayer times based on coordinates.
 
+### Installation
+
+```bash
+$ npm i -g prayertiming-cli
+```
+
 ### Usage:
 
 ```bash
@@ -45,6 +51,12 @@ A command line tool to show Muslim prayer times based on coordinates.
 - monthly
 
 ![prayertiming-monthly](screenshots/prayertiming-monthly.jpg)
+
+### Uninstall
+
+```bash
+$ npm uninstall -g prayertiming-cli
+```
 
 ### Related projects
 
