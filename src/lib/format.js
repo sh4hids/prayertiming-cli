@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import Table from 'cli-table';
 import { format } from 'date-fns';
 
@@ -58,7 +59,7 @@ export function getByMonthFormat(data = []) {
 export function formatConfig(config = {}) {
   const table = new Table();
   Object.keys(config).forEach((key) => {
-    table.push([key, config[key]]);
+    table.push([key, config[key] ? config[key] : chalk.gray('default')]);
   });
 
   return table.toString();

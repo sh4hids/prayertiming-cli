@@ -68,6 +68,32 @@ export default function showUsage() {
 
   ui.div(
     {
+      text: '--date',
+      width: 32,
+      padding: [0, 1, 1, 1],
+    },
+    {
+      text: 'a valid date',
+      width: 32,
+      padding: [0, 1, 0, 1],
+    }
+  );
+
+  ui.div(
+    {
+      text: '--dst',
+      width: 32,
+      padding: [0, 1, 1, 1],
+    },
+    {
+      text: 'daylight saving time (1 or 0)',
+      width: 32,
+      padding: [0, 1, 0, 1],
+    }
+  );
+
+  ui.div(
+    {
       text: '--help',
       width: 32,
       padding: [0, 1, 1, 1],
@@ -86,7 +112,7 @@ export default function showUsage() {
       padding: [0, 1, 1, 1],
     },
     {
-      text: 'latitude',
+      text: 'latitude (-90 to 90)',
       width: 32,
       padding: [0, 1, 0, 1],
     }
@@ -99,7 +125,7 @@ export default function showUsage() {
       padding: [0, 1, 1, 1],
     },
     {
-      text: 'longitude',
+      text: 'longitude (-180 to 180)',
       width: 32,
       padding: [0, 1, 0, 1],
     }
@@ -126,6 +152,19 @@ export default function showUsage() {
     },
     {
       text: 'output time format (12h/24h)',
+      width: 32,
+      padding: [0, 1, 0, 1],
+    }
+  );
+
+  ui.div(
+    {
+      text: '--timezone',
+      width: 32,
+      padding: [0, 1, 1, 1],
+    },
+    {
+      text: 'the difference to GMT in hours',
       width: 32,
       padding: [0, 1, 0, 1],
     }

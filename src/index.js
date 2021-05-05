@@ -37,44 +37,54 @@ console.log(
 );
 
 const run = async () => {
-  const argv = minimist(process.argv.slice(2));
-  const {
-    _: booleans,
-    type = 'daily',
-    lat,
-    long,
-    timeFormat = '24h',
-    method = 'MWL',
-    help,
-    h,
-  } = argv;
+  try {
+    const argv = minimist(process.argv.slice(2));
+    const {
+      _: booleans,
+      type = 'daily',
+      help,
+      h,
+      date,
+      lat,
+      long,
+      timeFormat,
+      method,
+      timezone,
+      dst,
+    } = argv;
 
-  let config = { type, lat, long, timeFormat, method };
+    let config = { date, type, lat, long, timeFormat, method, timezone, dst };
 
-  if (booleans.includes('configure')) {
-    config = { ...config, ...(await configure.setConfig()) };
+    Object.keys(config).forEach(
+      (key) => config[key] === undefined && delete config[key]
+    );
+
+    if (booleans.includes('configure')) {
+      config = { ...config, ...(await configure.setConfig()) };
+    }
+
+    if (booleans.includes('showConfig')) {
+      config = await configure.getConfig();
+
+      console.log(formatConfig(config));
+      return;
+    }
+
+    if (booleans.includes('help') || h || help) {
+      showUsage();
+      return;
+    }
+
+    if (!lat || !long) {
+      config = { ...(await configure.getConfig()), ...config };
+    }
+
+    const timing = prayertiming(config);
+
+    console.log(format(type, timing));
+  } catch (e) {
+    console.log(chalk.red(e));
   }
-
-  if (booleans.includes('showConfig')) {
-    config = await configure.getConfig();
-
-    console.log(formatConfig(config));
-    return;
-  }
-
-  if (booleans.includes('help') || h || help) {
-    showUsage();
-    return;
-  }
-
-  if (!lat || !long) {
-    config = { ...config, ...(await configure.getConfig()) };
-  }
-
-  const timing = prayertiming(config);
-
-  console.log(format(type, timing));
-  return;
 };
 
 run();
