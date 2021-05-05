@@ -2,7 +2,7 @@
 
 A command line tool to show Muslim prayer times based on coordinates.
 
-### Installation
+### Install
 
 ```bash
 $ npm i -g prayertiming-cli
@@ -23,17 +23,23 @@ $ npm i -g prayertiming-cli
 ### Options (optional):
 
 ```bash
- --help                          show usage info
+  --date                          a valid date
 
- --lat                           latitude
+  --dst                           daylight saving time (1 or 0)
 
- --long                          longitude
+  --help                          show usage info
 
- --method                        calculation method
+  --lat                           latitude (-90 to 90)
 
- --timeFormat                    output time format (12h/24h)
+  --long                          longitude (-180 to 180)
 
- --type                          output format (daily/monthly)
+  --method                        calculation method
+
+  --timeFormat                    output time format (12h/24h)
+
+  --timezone                      the difference to GMT in hours
+
+  --type                          output format (daily/monthly)
 ```
 
 ### Alias:
