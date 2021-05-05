@@ -40,6 +40,7 @@ export default function askForConfig() {
         'MWL',
         'Tehran',
       ],
+      default: 'MWL',
       message: 'Select a calculation method:',
       validate: function (value) {
         if (value.length) {
@@ -53,6 +54,7 @@ export default function askForConfig() {
       name: 'timeFormat',
       type: 'list',
       choices: ['12h', '24h'],
+      default: '24h',
       message: 'Select output time format:',
       validate: function (value) {
         if (value.length) {
@@ -61,6 +63,18 @@ export default function askForConfig() {
           return 'Please select an output time format';
         }
       },
+    },
+    {
+      name: 'timezone',
+      type: 'input',
+      message: 'Enter your timezone:',
+    },
+    {
+      name: 'dst',
+      type: 'list',
+      choices: ['Yes', 'No', 'N/A'],
+      default: 'N/A',
+      message: 'Is in daylight saving time?',
     },
   ];
   return inquirer.prompt(questions);

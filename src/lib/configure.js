@@ -8,6 +8,7 @@ const conf = new Configstore(pkg.name);
 export async function setConfig() {
   try {
     const config = await inquirer();
+    config.dst = config.dst === 'Yes' ? 1 : (config.dst = 'No' ? 0 : undefined);
     conf.set('config', config);
     return config;
   } catch (e) {
@@ -21,6 +22,8 @@ export async function getConfig() {
 
     if (!Object.keys(config).length) {
       config = await inquirer();
+      config.dst =
+        config.dst === 'Yes' ? 1 : (config.dst = 'No' ? 0 : undefined);
       conf.set('config', config);
     }
 
