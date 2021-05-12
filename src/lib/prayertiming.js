@@ -7,6 +7,9 @@ export default function prayertiming(config = {}) {
     lat: config.lat,
     method: config.method,
     timeFormat: config.timeFormat,
+    timezone: config.timezone,
+    dst: config.dst,
+    elv: config.elv,
   };
 
   let timing;

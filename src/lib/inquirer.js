@@ -1,11 +1,36 @@
+import cities from 'all-the-cities';
 import inquirer from 'inquirer';
+
+import { titleCase } from './format';
 
 export default function askForConfig() {
   const questions = [
     {
+      name: 'city',
+      type: 'input',
+      message: 'Enter your city name:',
+    },
+    {
+      name: 'country',
+      type: 'input',
+      message: 'Enter your country code:',
+    },
+    {
       name: 'lat',
       type: 'input',
       message: 'Enter your latitude:',
+      when: (answers) => {
+        if (!answers.city || !answers.country) {
+          return true;
+        }
+
+        const filteredCities = cities.filter(
+          (city) =>
+            city.name.match(titleCase(answers.city)) &&
+            city.country === answers.country.toUpperCase()
+        );
+        return filteredCities.length ? false : true;
+      },
       validate: function (value) {
         if (value.length) {
           return true;
@@ -18,6 +43,18 @@ export default function askForConfig() {
       name: 'long',
       type: 'input',
       message: 'Enter your longitude:',
+      when: (answers) => {
+        if (!answers.city || !answers.country) {
+          return true;
+        }
+
+        const filteredCities = cities.filter(
+          (city) =>
+            city.name.match(titleCase(answers.city)) &&
+            city.country === answers.country.toUpperCase()
+        );
+        return filteredCities.length ? false : true;
+      },
       validate: function (value) {
         if (value.length) {
           return true;
@@ -25,6 +62,11 @@ export default function askForConfig() {
           return 'Please enter a vlid longitude';
         }
       },
+    },
+    {
+      name: 'elv',
+      type: 'input',
+      message: 'Enter elevation (in meters):',
     },
     {
       name: 'method',
