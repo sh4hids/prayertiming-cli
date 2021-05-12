@@ -23,7 +23,7 @@ $ npm i -g prayertiming-cli
 ### Options (optional):
 
 ```bash
---city                          valid city name
+ --city                          valid city name
 
  --country                       ISO 3166-1 Alpha-2 code
 
