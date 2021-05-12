@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import cities from 'all-the-cities';
 import boxen from 'boxen';
 import chalk from 'chalk';
 import clear from 'clear';
@@ -6,7 +7,7 @@ import figlet from 'figlet';
 import minimist from 'minimist';
 
 import * as configure from './lib/configure';
-import { default as format, formatConfig } from './lib/format';
+import { default as format, formatConfig, titleCase } from './lib/format';
 import inquirer from './lib/inquirer';
 import prayertiming from './lib/prayertiming';
 import { default as showUsage } from './lib/usage';
@@ -45,6 +46,8 @@ const run = async () => {
       help,
       h,
       date,
+      city,
+      country,
       lat,
       long,
       timeFormat,
@@ -73,6 +76,16 @@ const run = async () => {
     if (booleans.includes('help') || h || help) {
       showUsage();
       return;
+    }
+
+    if (city && country) {
+      const filteredCities = cities.filter(
+        (item) =>
+          item.name.match(titleCase(city)) &&
+          item.country === country.toUpperCase()
+      );
+      config.lat = filteredCities[0].loc.coordinates[1];
+      config.long = filteredCities[0].loc.coordinates[0];
     }
 
     if (!lat || !long) {
