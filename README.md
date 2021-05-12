@@ -23,23 +23,29 @@ $ npm i -g prayertiming-cli
 ### Options (optional):
 
 ```bash
-  --date                          a valid date
+--city                          valid city name
 
-  --dst                           daylight saving time (1 or 0)
+ --country                       ISO 3166-1 Alpha-2 code
 
-  --help                          show usage info
+ --date                          a valid date
 
-  --lat                           latitude (-90 to 90)
+ --dst                           daylight saving time (1 or 0)
 
-  --long                          longitude (-180 to 180)
+ --elv                           elevation (in meters)
 
-  --method                        calculation method
+ --help                          show usage info
 
-  --timeFormat                    output time format (12h/24h)
+ --lat                           latitude (-90 to 90)
 
-  --timezone                      the difference to GMT in hours
+ --long                          longitude (-180 to 180)
 
-  --type                          output format (daily/monthly)
+ --method                        calculation method
+
+ --timeFormat                    output time format (12h/24h)
+
+ --timezone                      the difference to GMT in hours
+
+ --type                          output format (daily/monthly)
 ```
 
 ### Alias:

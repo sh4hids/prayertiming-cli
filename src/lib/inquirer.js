@@ -64,6 +64,11 @@ export default function askForConfig() {
       },
     },
     {
+      name: 'elv',
+      type: 'input',
+      message: 'Enter elevation (in meters):',
+    },
+    {
       name: 'method',
       type: 'list',
       choices: [

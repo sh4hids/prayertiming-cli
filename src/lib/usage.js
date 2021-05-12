@@ -68,6 +68,32 @@ export default function showUsage() {
 
   ui.div(
     {
+      text: '--city',
+      width: 32,
+      padding: [0, 1, 1, 1],
+    },
+    {
+      text: 'valid city name',
+      width: 32,
+      padding: [0, 1, 0, 1],
+    }
+  );
+
+  ui.div(
+    {
+      text: '--country',
+      width: 32,
+      padding: [0, 1, 1, 1],
+    },
+    {
+      text: 'ISO 3166-1 Alpha-2 code',
+      width: 32,
+      padding: [0, 1, 0, 1],
+    }
+  );
+
+  ui.div(
+    {
       text: '--date',
       width: 32,
       padding: [0, 1, 1, 1],
@@ -87,6 +113,19 @@ export default function showUsage() {
     },
     {
       text: 'daylight saving time (1 or 0)',
+      width: 32,
+      padding: [0, 1, 0, 1],
+    }
+  );
+
+  ui.div(
+    {
+      text: '--elv',
+      width: 32,
+      padding: [0, 1, 1, 1],
+    },
+    {
+      text: 'elevation (in meters)',
       width: 32,
       padding: [0, 1, 0, 1],
     }

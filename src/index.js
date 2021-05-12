@@ -50,13 +50,24 @@ const run = async () => {
       country,
       lat,
       long,
+      elv,
       timeFormat,
       method,
       timezone,
       dst,
     } = argv;
 
-    let config = { date, type, lat, long, timeFormat, method, timezone, dst };
+    let config = {
+      date,
+      type,
+      lat,
+      long,
+      elv,
+      timeFormat,
+      method,
+      timezone,
+      dst,
+    };
 
     Object.keys(config).forEach(
       (key) => config[key] === undefined && delete config[key]
@@ -91,6 +102,8 @@ const run = async () => {
     if (!lat || !long) {
       config = { ...(await configure.getConfig()), ...config };
     }
+
+    config.elv = config.elv ? Number(config.elv) : 0;
 
     const timing = prayertiming(config);
 
