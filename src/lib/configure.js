@@ -36,6 +36,17 @@ export async function getConfig() {
 
     if (!Object.keys(config).length) {
       config = await inquirer();
+
+      if (config.city && config.country) {
+        const filteredCities = cities.filter(
+          (city) =>
+            city.name.match(titleCase(config.city)) &&
+            city.country === config.country.toUpperCase()
+        );
+        config.lat = filteredCities[0].loc.coordinates[1];
+        config.long = filteredCities[0].loc.coordinates[0];
+      }
+
       config.dst =
         config.dst === 'Yes' ? 1 : (config.dst = 'No' ? 0 : undefined);
       conf.set('config', config);
